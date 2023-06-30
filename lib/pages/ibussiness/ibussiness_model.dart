@@ -14,6 +14,7 @@ import 'package:provider/provider.dart';
 class IbussinessModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // State field(s) for Username widget.
   TextEditingController? usernameController;
   String? Function(BuildContext, String?)? usernameControllerValidator;
@@ -29,10 +30,12 @@ class IbussinessModel extends FlutterFlowModel {
   }
 
   void dispose() {
+    unfocusNode.dispose();
     usernameController?.dispose();
     passwordController?.dispose();
   }
 
-  /// Additional helper methods are added here.
+  /// Action blocks are added here.
 
+  /// Additional helper methods are added here.
 }

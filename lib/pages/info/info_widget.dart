@@ -20,7 +20,6 @@ class _InfoWidgetState extends State<InfoWidget> {
   late InfoModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
@@ -37,14 +36,13 @@ class _InfoWidgetState extends State<InfoWidget> {
   void dispose() {
     _model.dispose();
 
-    _unfocusNode.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryText,
@@ -262,7 +260,7 @@ class _InfoWidgetState extends State<InfoWidget> {
                                       borderRadius: BorderRadius.circular(15.0),
                                     ),
                                     child: Container(
-                                      width: MediaQuery.of(context).size.width *
+                                      width: MediaQuery.sizeOf(context).width *
                                           1.0,
                                       height: 100.0,
                                       decoration: BoxDecoration(
@@ -355,7 +353,7 @@ class _InfoWidgetState extends State<InfoWidget> {
                                       ),
                                       child: Container(
                                         width:
-                                            MediaQuery.of(context).size.width *
+                                            MediaQuery.sizeOf(context).width *
                                                 1.0,
                                         height: 100.0,
                                         decoration: BoxDecoration(
@@ -421,7 +419,7 @@ class _InfoWidgetState extends State<InfoWidget> {
                                       ),
                                       child: Container(
                                         width:
-                                            MediaQuery.of(context).size.width *
+                                            MediaQuery.sizeOf(context).width *
                                                 1.0,
                                         height: 100.0,
                                         decoration: BoxDecoration(
